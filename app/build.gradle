@@ -1,0 +1,83 @@
+import static dependencies.DependenciesKt.*
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+  compileSdkVersion COMPILE_SDK
+
+  defaultConfig {
+    applicationId "com.github.satoshun.example"
+    minSdkVersion MIN_SDK
+    targetSdkVersion TARGET_SDK
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    debug {
+      debuggable true
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+
+    coreLibraryDesugaringEnabled true
+  }
+}
+
+dependencies {
+  implementation KOTLIN
+
+  implementation MATERIAL
+  implementation APPCOMPAT
+  implementation CONSTRAINTLAYOUT
+  implementation KTX
+
+  implementation LIFECYCLE_COMMON
+  implementation LIFECYCLE_RUNTIME
+  implementation LIFECYCLE_EXTENSION
+
+  implementation COROUTINE
+  implementation UI_COROUTINE
+
+  implementation UI_TOOLING
+  implementation UI_LAYOUT
+  implementation UI_MATERIAL
+
+  implementation NAVIGATION
+  implementation NAVIGATION_UI
+
+  implementation SWIPE_REFRESH_LAYOUT
+
+  implementation DAGGER_RUNTIME
+  kapt DAGGER_COMPILER
+  implementation DAGGER_ANDROID_RUNTIME
+  kapt DAGGER_ANDROID_COMPILER
+
+  implementation GLIDE
+
+  implementation PICASSO
+
+  coreLibraryDesugaring DESUGAR
+
+  implementation OKHTTP
+  implementation OKHTTP_LOGGING
+  implementation RETROFIT
+
+  implementation GROUPIE
+  implementation GROUPIE_DATABINDING
+
+  testImplementation JUNIT
+
+  androidTestImplementation TEST_RUNNER
+  androidTestImplementation ESPRESSO
+}

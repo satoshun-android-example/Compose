@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Android Studio New Feature example</string>
+
+  <item name="fragment_binding" type="id" />
+</resources>

@@ -1,0 +1,34 @@
+import static dependencies.DependenciesKt.*
+
+buildscript {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+  }
+  dependencies {
+    classpath ANDROID_PLUGIN
+    classpath KOTLIN_PLUGIN
+    classpath SAFEARGS_PLUGIN
+    classpath VERSIONS_PLUGIN
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+  }
+
+  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+      jvmTarget = JavaVersion.VERSION_1_8
+    }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
