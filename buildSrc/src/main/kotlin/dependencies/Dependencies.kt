@@ -16,6 +16,8 @@ private const val VUIVERSION = "0.1.0-dev05"
 const val UI_TOOLING = "androidx.ui:ui-tooling:$VUIVERSION"
 const val UI_LAYOUT = "androidx.ui:ui-layout:$VUIVERSION"
 const val UI_MATERIAL = "androidx.ui:ui-material:$VUIVERSION"
+const val UI_ANIMATION = "androidx.ui:ui-animation:$VUIVERSION"
+const val COMPOSE = "androidx.compose:compose-runtime:$VUIVERSION"
 
 private const val VCOUROUTINE = "1.3.3"
 const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:$VKOTLIN"

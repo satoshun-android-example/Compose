@@ -3,7 +3,6 @@ import static dependencies.DependenciesKt.*
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
   compileSdkVersion COMPILE_SDK
@@ -16,10 +15,12 @@ android {
     versionName "1.0"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
+
   buildTypes {
     debug {
       debuggable true
     }
+
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -47,12 +48,13 @@ dependencies {
   implementation COROUTINE
   implementation UI_COROUTINE
 
+  implementation COMPOSE
   implementation UI_TOOLING
   implementation UI_LAYOUT
   implementation UI_MATERIAL
+  implementation UI_ANIMATION
 
-  implementation NAVIGATION
-  implementation NAVIGATION_UI
+  implementation ACTIVITYX
 
   implementation DAGGER_RUNTIME
   kapt DAGGER_COMPILER

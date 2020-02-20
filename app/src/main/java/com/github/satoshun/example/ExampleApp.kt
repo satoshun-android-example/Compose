@@ -1,32 +1,41 @@
 package com.github.satoshun.example
 
 import androidx.compose.Composable
-import androidx.ui.core.Text
-import androidx.ui.layout.Column
-import androidx.ui.layout.LayoutHeight
-import androidx.ui.layout.LayoutPadding
-import androidx.ui.layout.Row
-import androidx.ui.layout.Spacer
-import androidx.ui.unit.dp
+import androidx.compose.remember
+import androidx.ui.foundation.AdapterList
+import androidx.ui.material.ListItem
 import com.github.satoshun.example.constraintlayout.ConstraintChainExample
 import com.github.satoshun.example.constraintlayout.ConstraintExample
-import com.github.satoshun.example.flex.ExampleFlex
-import com.github.satoshun.example.list.ExampleAdapter
 
 @Composable
 fun ExampleApp() {
-  Column {
-    Row(modifier = LayoutPadding(top = 16.dp)) {
-      ExampleText()
-      Spacer(modifier = LayoutPadding(left = 16.dp))
-      Text("second")
+  val screenStatus = remember { ScreenStatus() }
+
+  when (screenStatus.currentScreen) {
+    Screen.Home -> ExampleHomeApp(screenStatus)
+    in Screen.detailScreens -> ExampleDetailApp(screenStatus)
+    else -> throw IllegalStateException("unknown screen")
+  }
+}
+
+@Composable
+fun ExampleHomeApp(status: ScreenStatus) {
+  val screenStatus = remember { status }
+
+  AdapterList(Screen.detailScreens) { screen ->
+    ListItem(text = screen.name, onClick = {
+      screenStatus.currentScreen = screen
+    })
+  }
+}
+
+@Composable
+fun ExampleDetailApp(status: ScreenStatus) {
+  when (status.currentScreen) {
+    Screen.ConstraintLayout -> {
+      ConstraintExample()
+      ConstraintChainExample()
     }
-
-    Spacer(LayoutHeight(24.dp))
-
-    ConstraintExample()
-    ConstraintChainExample()
-    ExampleFlex()
-    ExampleAdapter()
+    else -> throw IllegalStateException("unknown detail screen")
   }
 }
