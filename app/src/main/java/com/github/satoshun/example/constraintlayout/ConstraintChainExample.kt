@@ -42,7 +42,6 @@ fun ConstraintChainExample() {
       text3.apply {
         top constrainTo text1.top
       }
-
     }) {
       Draw { canvas, parentSize ->
         canvas.drawRect(parentSize.toRect(), Paint().apply { color = Color.Magenta })
