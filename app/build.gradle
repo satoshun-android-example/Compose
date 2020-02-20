@@ -37,9 +37,7 @@ android {
 dependencies {
   implementation KOTLIN
 
-  implementation MATERIAL
   implementation APPCOMPAT
-  implementation CONSTRAINTLAYOUT
   implementation KTX
 
   implementation LIFECYCLE_COMMON
@@ -56,25 +54,16 @@ dependencies {
   implementation NAVIGATION
   implementation NAVIGATION_UI
 
-  implementation SWIPE_REFRESH_LAYOUT
-
   implementation DAGGER_RUNTIME
   kapt DAGGER_COMPILER
   implementation DAGGER_ANDROID_RUNTIME
   kapt DAGGER_ANDROID_COMPILER
-
-  implementation GLIDE
-
-  implementation PICASSO
 
   coreLibraryDesugaring DESUGAR
 
   implementation OKHTTP
   implementation OKHTTP_LOGGING
   implementation RETROFIT
-
-  implementation GROUPIE
-  implementation GROUPIE_DATABINDING
 
   testImplementation JUNIT
 
