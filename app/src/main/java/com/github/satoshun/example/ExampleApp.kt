@@ -8,6 +8,7 @@ import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.Row
 import androidx.ui.layout.Spacer
 import androidx.ui.unit.dp
+import com.github.satoshun.example.constraintlayout.ConstraintChainExample
 import com.github.satoshun.example.constraintlayout.ConstraintExample
 
 @Composable
@@ -22,5 +23,7 @@ fun ExampleApp() {
     Spacer(LayoutHeight(24.dp))
 
     ConstraintExample()
+
+    ConstraintChainExample()
   }
 }
