@@ -1,7 +1,6 @@
 package com.github.satoshun.example
 
 import androidx.compose.Composable
-import androidx.compose.remember
 import androidx.ui.foundation.AdapterList
 import androidx.ui.material.ListItem
 import com.github.satoshun.example.constraintlayout.ConstraintChainExample
@@ -9,29 +8,25 @@ import com.github.satoshun.example.constraintlayout.ConstraintExample
 
 @Composable
 fun ExampleApp() {
-  val screenStatus = remember { ScreenStatus() }
-
-  when (screenStatus.currentScreen) {
-    Screen.Home -> ExampleHomeApp(screenStatus)
-    in Screen.detailScreens -> ExampleDetailApp(screenStatus)
+  when (ScreenStatus.currentScreen) {
+    Screen.Home -> ExampleHomeApp()
+    in Screen.detailScreens -> ExampleDetailApp()
     else -> throw IllegalStateException("unknown screen")
   }
 }
 
 @Composable
-fun ExampleHomeApp(status: ScreenStatus) {
-  val screenStatus = remember { status }
-
+fun ExampleHomeApp() {
   AdapterList(Screen.detailScreens) { screen ->
     ListItem(text = screen.name, onClick = {
-      screenStatus.currentScreen = screen
+      ScreenStatus.navigateTo(screen)
     })
   }
 }
 
 @Composable
-fun ExampleDetailApp(status: ScreenStatus) {
-  when (status.currentScreen) {
+fun ExampleDetailApp() {
+  when (ScreenStatus.currentScreen) {
     Screen.ConstraintLayout -> {
       ConstraintExample()
       ConstraintChainExample()

@@ -2,7 +2,6 @@ import static dependencies.DependenciesKt.*
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
   compileSdkVersion COMPILE_SDK
@@ -30,8 +29,14 @@ android {
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
+  }
 
-    coreLibraryDesugaringEnabled true
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+
+  buildFeatures {
+    compose true
   }
 }
 
@@ -55,13 +60,6 @@ dependencies {
   implementation UI_ANIMATION
 
   implementation ACTIVITYX
-
-  implementation DAGGER_RUNTIME
-  kapt DAGGER_COMPILER
-  implementation DAGGER_ANDROID_RUNTIME
-  kapt DAGGER_ANDROID_COMPILER
-
-  coreLibraryDesugaring DESUGAR
 
   implementation OKHTTP
   implementation OKHTTP_LOGGING

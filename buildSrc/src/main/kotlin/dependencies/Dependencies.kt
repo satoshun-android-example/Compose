@@ -5,19 +5,17 @@ const val MIN_SDK = 21
 const val TARGET_SDK = 29
 
 private const val VKOTLIN = "1.3.61"
-private const val VNAVIGATION = "2.1.0"
 
 const val ANDROID_PLUGIN = "com.android.tools.build:gradle:4.0.0-alpha09"
 const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VKOTLIN"
-const val SAFEARGS_PLUGIN = "androidx.navigation:navigation-safe-args-gradle-plugin:$VNAVIGATION"
 const val VERSIONS_PLUGIN = "com.github.ben-manes:gradle-versions-plugin:0.20.0"
 
 private const val VUIVERSION = "0.1.0-dev05"
+const val COMPOSE = "androidx.compose:compose-runtime:$VUIVERSION"
 const val UI_TOOLING = "androidx.ui:ui-tooling:$VUIVERSION"
 const val UI_LAYOUT = "androidx.ui:ui-layout:$VUIVERSION"
 const val UI_MATERIAL = "androidx.ui:ui-material:$VUIVERSION"
 const val UI_ANIMATION = "androidx.ui:ui-animation:$VUIVERSION"
-const val COMPOSE = "androidx.compose:compose-runtime:$VUIVERSION"
 
 private const val VCOUROUTINE = "1.3.3"
 const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:$VKOTLIN"
@@ -46,8 +44,6 @@ const val MEDIA2 = "androidx.media2:media2:1.0.0-alpha04"
 const val MATERIAL = "com.google.android.material:material:1.1.0-beta02"
 const val PAGING = "androidx.paging:paging-runtime:2.1.0"
 const val BROWSER = "androidx.browser:browser:1.0.0"
-const val NAVIGATION = "androidx.navigation:navigation-fragment-ktx:$VNAVIGATION"
-const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:$VNAVIGATION"
 
 private const val VROOM = "2.1.0-alpha04"
 const val ROOM_COMMON = "androidx.room:room-common:$VROOM"
