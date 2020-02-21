@@ -8,7 +8,6 @@ private const val VKOTLIN = "1.3.61"
 
 const val ANDROID_PLUGIN = "com.android.tools.build:gradle:4.0.0-alpha09"
 const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VKOTLIN"
-const val VERSIONS_PLUGIN = "com.github.ben-manes:gradle-versions-plugin:0.20.0"
 
 private const val VUIVERSION = "0.1.0-dev05"
 const val COMPOSE = "androidx.compose:compose-runtime:$VUIVERSION"
@@ -17,8 +16,9 @@ const val UI_LAYOUT = "androidx.ui:ui-layout:$VUIVERSION"
 const val UI_MATERIAL = "androidx.ui:ui-material:$VUIVERSION"
 const val UI_ANIMATION = "androidx.ui:ui-animation:$VUIVERSION"
 
+const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$VKOTLIN"
+
 private const val VCOUROUTINE = "1.3.3"
-const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:$VKOTLIN"
 const val COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$VCOUROUTINE"
 const val UI_COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$VCOUROUTINE"
 
@@ -26,9 +26,9 @@ const val KTX = "androidx.core:core-ktx:1.1.0"
 const val ACTIVITYX = "androidx.activity:activity-ktx:1.0.0"
 const val FRAGMENTX = "androidx.fragment:fragment-ktx:1.1.0"
 
-const val LIFECYCLE_COMMON = "androidx.lifecycle:lifecycle-common-java8:2.2.0-rc03"
-const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-rc03"
-const val LIFECYCLE_EXTENSION = "androidx.lifecycle:lifecycle-extensions:2.2.0-rc03"
+const val LIFECYCLE_COMMON = "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+const val LIFECYCLE_EXTENSION = "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
 const val APPCOMPAT = "androidx.appcompat:appcompat:1.1.0"
 const val RECYCLERVIEW = "androidx.recyclerview:recyclerview:1.1.0-beta04"
