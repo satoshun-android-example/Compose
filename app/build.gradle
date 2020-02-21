@@ -49,7 +49,6 @@ dependencies {
 
   implementation LIFECYCLE_COMMON
   implementation LIFECYCLE_RUNTIME
-  implementation LIFECYCLE_EXTENSION
 
   implementation COROUTINE
   implementation UI_COROUTINE
