@@ -7,10 +7,6 @@ data class ScreenStatus(
   var currentScreen: Screen = Screen.Home
 )
 
-fun ScreenStatus.navigateTo(screen: Screen) {
-  currentScreen = screen
-}
-
 sealed class Screen {
   abstract val name: String
 
@@ -22,7 +18,11 @@ sealed class Screen {
     override val name: String = "ConstraintLayout"
   }
 
+  object Flex : Screen() {
+    override val name: String = "Flex"
+  }
+
   companion object {
-    val detailScreens = listOf(ConstraintLayout)
+    val detailScreens = listOf(ConstraintLayout, Flex)
   }
 }

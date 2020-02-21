@@ -7,11 +7,11 @@ import androidx.ui.layout.Row
 
 @Composable
 fun ExampleFlex() {
-//  Row {
-//    Container(modifier = LayoutFlexible(flex = 1.0f)) {
-//      (0..100).forEach {
-//        Text(text = "$it")
-//      }
-//    }
-//  }
+  Row {
+    Container(modifier = LayoutFlexible(flex = 1.0f)) {
+      (0..100).forEach {
+        Text(text = "$it")
+      }
+    }
+  }
 }
