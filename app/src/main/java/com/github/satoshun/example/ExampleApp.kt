@@ -1,7 +1,6 @@
 package com.github.satoshun.example
 
 import androidx.compose.Composable
-import androidx.compose.remember
 import androidx.ui.foundation.AdapterList
 import androidx.ui.material.ListItem
 import com.github.satoshun.example.constraintlayout.ConstraintChainExample
@@ -9,8 +8,7 @@ import com.github.satoshun.example.constraintlayout.ConstraintExample
 import com.github.satoshun.example.flex.ExampleFlex
 
 @Composable
-fun ExampleApp() {
-  val screenStatus = remember { ScreenStatus() }
+fun ExampleApp(screenStatus: ScreenStatus) {
   when (screenStatus.currentScreen) {
     Screen.Home -> ExampleHomeApp(screenStatus)
     Screen.ConstraintLayout -> {

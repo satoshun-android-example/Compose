@@ -9,7 +9,7 @@ class AppActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     setContent {
-      ExampleApp()
+      ExampleApp(ScreenStatus(currentScreen = Screen.Flex))
     }
   }
 }
