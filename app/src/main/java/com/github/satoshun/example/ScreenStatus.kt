@@ -3,9 +3,9 @@ package com.github.satoshun.example
 import androidx.compose.Model
 
 @Model
-object ScreenStatus {
+data class ScreenStatus(
   var currentScreen: Screen = Screen.Home
-}
+)
 
 fun ScreenStatus.navigateTo(screen: Screen) {
   currentScreen = screen
