@@ -22,6 +22,10 @@ sealed class Screen {
     override val name: String = "Flex"
   }
 
+  object AdapterList : Screen() {
+    override val name: String = "AdapterList"
+  }
+
   companion object {
     val detailScreens = listOf(ConstraintLayout, Flex)
   }
