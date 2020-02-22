@@ -19,8 +19,8 @@ import androidx.ui.graphics.Color
 import androidx.ui.material.lightColorPalette
 
 val lightThemeColors = lightColorPalette(
-  primary = Color(0xFFDD0D3C),
-  primaryVariant = Color(0xFFC20029),
+  primary = Color(0xFF041E42),
+  primaryVariant = Color(0xFF041E42),
   onPrimary = Color.White,
   secondary = Color.White,
   onSecondary = Color.Black,
