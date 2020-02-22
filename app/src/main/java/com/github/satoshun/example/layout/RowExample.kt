@@ -38,7 +38,7 @@ fun RowExample() {
       LayoutHeight(80.dp) + LayoutFlexible(1.5f, tight = false),
       backgroundColor = Color.Green
     ) {
-      Text(text = "hoge")
+      Text(text = "hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge")
     }
   }
 }

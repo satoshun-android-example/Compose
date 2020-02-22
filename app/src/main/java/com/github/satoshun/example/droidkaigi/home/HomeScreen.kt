@@ -11,6 +11,7 @@ import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
 import androidx.ui.graphics.Image
 import androidx.ui.layout.Column
+import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.constraintlayout.ConstraintLayout
 import androidx.ui.layout.constraintlayout.ConstraintSet
@@ -50,7 +51,8 @@ data class HomeItem(
   val title: String,
   val speaker: String?,
   val duration: String,
-  val category: String
+  val category: String,
+  val icon: Any?
 )
 
 private val data = listOf(
@@ -59,7 +61,16 @@ private val data = listOf(
     title = "ウェルカムトーク",
     speaker = null,
     duration = "20min",
-    category = "App Bars"
+    category = "App Bars",
+    icon = null
+  ),
+  HomeItem(
+    startAt = "10:20",
+    title = "UnderStanding Kotlin coroutines: コルーチンで進化するアプリケーション開発",
+    speaker = "mhidaka",
+    duration = "40min",
+    category = "App Bars",
+    icon = null
   )
 )
 
@@ -78,16 +89,20 @@ private fun HomeItemList() {
         }
         durationAndCategory.apply {
           left constrainTo startTime.right
+          right constrainTo parent.right
           top constrainTo startTime.top
+          horizontalBias = 0f
           left.margin = 16.dp
         }
         title.apply {
           left constrainTo durationAndCategory.left
           top constrainTo durationAndCategory.bottom
+          right constrainTo durationAndCategory.right
+          horizontalBias = 0f
           top.margin = 8.dp
         }
       }) {
-        val startTime = Text(
+        Text(
           modifier = LayoutTag("startTime"),
           text = model.startAt,
           style = TextStyle(
@@ -96,20 +111,22 @@ private fun HomeItemList() {
             fontWeight = FontWeight.W500
           )
         )
-        val durationAndCategory = Text(
+
+        Text(
           modifier = LayoutTag("durationAndCategory"),
           text = "${model.duration} / ${model.category}",
           style = TextStyle(fontSize = 12.sp, color = Color(0x95000000))
         )
-        val title = Text(
-          modifier = LayoutTag("title"),
-          text = model.title,
-          style = TextStyle(
-            fontSize = 20.sp,
-            color = Color(0xFF041E42),
-            fontWeight = FontWeight.W500
+        Container(modifier = LayoutTag("title")) {
+          Text(
+            text = model.title,
+            style = TextStyle(
+              fontSize = 20.sp,
+              color = Color(0xFF041E42),
+              fontWeight = FontWeight.W500
+            )
           )
-        )
+        }
       }
     }
   }
