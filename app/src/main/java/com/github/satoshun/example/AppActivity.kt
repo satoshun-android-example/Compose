@@ -9,7 +9,7 @@ class AppActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     setContent {
-      ExampleApp(ScreenStatus(currentScreen = Screen.Spacer))
+      ExampleApp(ScreenStatus(currentScreen = Screen.Row))
     }
   }
 }

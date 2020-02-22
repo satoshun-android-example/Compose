@@ -30,6 +30,10 @@ sealed class Screen {
     override val name: String = "Spacer"
   }
 
+  object Row : Screen() {
+    override val name: String = "Row"
+  }
+
   companion object {
     val detailScreens = listOf(ConstraintLayout, Flex, AdapterList, Spacer)
   }
