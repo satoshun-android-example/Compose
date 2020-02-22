@@ -6,6 +6,7 @@ import androidx.ui.material.ListItem
 import com.github.satoshun.example.adapterlist.ExampleAdapterList
 import com.github.satoshun.example.constraintlayout.ConstraintChainExample
 import com.github.satoshun.example.constraintlayout.ConstraintExample
+import com.github.satoshun.example.droidkaigi.home.DroidKaigiHomeLayout
 import com.github.satoshun.example.flex.ExampleFlex
 import com.github.satoshun.example.layout.RowExample
 import com.github.satoshun.example.layout.SpacerExample
@@ -30,6 +31,7 @@ fun ExampleApp(screenStatus: ScreenStatus) {
     Screen.Row -> {
       RowExample()
     }
+    Screen.DroidKaigiHome -> DroidKaigiHomeLayout()
   }
 }
 

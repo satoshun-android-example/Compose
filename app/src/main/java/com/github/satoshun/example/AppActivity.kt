@@ -9,7 +9,7 @@ class AppActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     setContent {
-      ExampleApp(ScreenStatus(currentScreen = Screen.Row))
+      ExampleApp(ScreenStatus(currentScreen = Screen.DroidKaigiHome))
     }
   }
 }

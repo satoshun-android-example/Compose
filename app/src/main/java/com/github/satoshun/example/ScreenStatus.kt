@@ -34,7 +34,17 @@ sealed class Screen {
     override val name: String = "Row"
   }
 
+  object DroidKaigiHome : Screen() {
+    override val name: String = "DroidKaigiHome"
+  }
+
   companion object {
-    val detailScreens = listOf(ConstraintLayout, Flex, AdapterList, Spacer)
+    val detailScreens = listOf(
+      ConstraintLayout,
+      Flex,
+      AdapterList,
+      Spacer,
+      Row
+    )
   }
 }
