@@ -22,8 +22,10 @@ import androidx.ui.layout.LayoutSize
 import androidx.ui.layout.LayoutWidth
 import androidx.ui.layout.Row
 import androidx.ui.layout.Spacer
+import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 
+@Preview
 @Composable
 fun SpacerExample() {
   Row {
