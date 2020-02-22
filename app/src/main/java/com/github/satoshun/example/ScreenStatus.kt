@@ -34,6 +34,10 @@ sealed class Screen {
     override val name: String = "Row"
   }
 
+  object Text : Screen() {
+    override val name: String = "Text"
+  }
+
   object DroidKaigiHome : Screen() {
     override val name: String = "DroidKaigiHome"
   }
