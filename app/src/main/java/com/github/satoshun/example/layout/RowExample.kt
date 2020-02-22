@@ -30,7 +30,10 @@ import androidx.ui.unit.dp
 fun RowExample() {
   Row {
     Box(LayoutSize(40.dp, 80.dp), backgroundColor = Color.Magenta) {}
-    Box(LayoutHeight(40.dp) + LayoutFlexible(1f), backgroundColor = Color.Yellow) {}
+    Box(
+      LayoutHeight(40.dp) + LayoutFlexible(1f),
+      backgroundColor = Color.Yellow
+    ) {}
     Box(
       LayoutHeight(80.dp) + LayoutFlexible(1.5f, tight = false),
       backgroundColor = Color.Green
