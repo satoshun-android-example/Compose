@@ -82,6 +82,7 @@ private fun HomeItemList() {
         val startTime = tag("startTime")
         val durationAndCategory = tag("durationAndCategory")
         val title = tag("title")
+        val label = tag("label")
 
         startTime.apply {
           left constrainTo parent.left
@@ -89,7 +90,7 @@ private fun HomeItemList() {
         }
         durationAndCategory.apply {
           left constrainTo startTime.right
-          right constrainTo parent.right
+          right constrainTo label.left
           top constrainTo startTime.top
           horizontalBias = 0f
           left.margin = 16.dp
@@ -100,6 +101,11 @@ private fun HomeItemList() {
           right constrainTo durationAndCategory.right
           horizontalBias = 0f
           top.margin = 8.dp
+        }
+        label.apply {
+          left constrainTo durationAndCategory.right
+          right constrainTo parent.right
+          horizontalBias = 1.0f
         }
       }) {
         Text(
@@ -117,15 +123,18 @@ private fun HomeItemList() {
           text = "${model.duration} / ${model.category}",
           style = TextStyle(fontSize = 12.sp, color = Color(0x95000000))
         )
-        Container(modifier = LayoutTag("title")) {
-          Text(
-            text = model.title,
-            style = TextStyle(
-              fontSize = 20.sp,
-              color = Color(0xFF041E42),
-              fontWeight = FontWeight.W500
-            )
+
+        Text(
+          modifier = LayoutTag("title"),
+          text = model.title,
+          style = TextStyle(
+            fontSize = 20.sp,
+            color = Color(0xFF041E42),
+            fontWeight = FontWeight.W500
           )
+        )
+
+        Container(modifier = LayoutTag("label"), width = 24.dp) {
         }
       }
     }
