@@ -38,6 +38,7 @@ fun TextExample() {
         top constrainTo parent.top
         left constrainTo parent.left
         right constrainTo parent.right
+        horizontalBias = 0f
       }
     }) {
       Text(
