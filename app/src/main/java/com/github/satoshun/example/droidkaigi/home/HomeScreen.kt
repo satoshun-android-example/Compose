@@ -7,6 +7,7 @@ import androidx.ui.core.Text
 import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.Box
 import androidx.ui.foundation.Clickable
+import androidx.ui.foundation.DrawImage
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
 import androidx.ui.graphics.vector.DrawVector
@@ -22,6 +23,7 @@ import androidx.ui.material.TopAppBar
 import androidx.ui.material.icons.Icons
 import androidx.ui.material.icons.filled.Menu
 import androidx.ui.material.ripple.Ripple
+import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
@@ -34,7 +36,11 @@ fun HomeScreen(openDrawer: () -> Unit) {
   Column {
     TopAppBar(
       title = {
-        Text(text = "DroidKaigi")
+        Text(text = "")
+        Container(modifier = LayoutSize(24.dp)) {
+          val icon = imageResource(id = R.drawable.ic_droidkaigi_logo)
+          DrawImage(image = icon)
+        }
       },
       navigationIcon = {
         Ripple(bounded = false) {
