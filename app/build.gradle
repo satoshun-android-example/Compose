@@ -57,6 +57,8 @@ dependencies {
   implementation UI_TOOLING
   implementation UI_LAYOUT
   implementation UI_MATERIAL
+  implementation UI_MATERIAL_ICON
+  implementation UI_MATERIAL_ICON_EXTENDED
   implementation UI_ANIMATION
 
   implementation ACTIVITYX

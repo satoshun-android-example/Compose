@@ -7,18 +7,21 @@ import androidx.ui.core.Text
 import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.Box
 import androidx.ui.foundation.Clickable
-import androidx.ui.foundation.SimpleImage
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
-import androidx.ui.graphics.Image
+import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
+import androidx.ui.layout.LayoutSize
 import androidx.ui.layout.constraintlayout.ConstraintLayout
 import androidx.ui.layout.constraintlayout.ConstraintSet
 import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
 import androidx.ui.material.TopAppBar
+import androidx.ui.material.icons.Icons
+import androidx.ui.material.icons.filled.Menu
+import androidx.ui.material.ripple.Ripple
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
@@ -32,12 +35,13 @@ fun HomeScreen(openDrawer: () -> Unit) {
         Text(text = "DroidKaigi")
       },
       navigationIcon = {
-        //        val context = ContextAmbient.current
-//        val image = imageFromResource(context.resources, R.mipmap.ic_launcher)
-
-        Clickable({ openDrawer() }) {
-          val image = Image(80, 80)
-          SimpleImage(image = image, tint = Color.Black)
+        Ripple(bounded = false) {
+          Clickable({ openDrawer() }) {
+            Container(modifier = LayoutSize(44.dp)) {
+              val icon = Icons.Default.Menu
+              DrawVector(icon, tintColor = Color.White)
+            }
+          }
         }
       }
     )

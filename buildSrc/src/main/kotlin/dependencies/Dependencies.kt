@@ -15,6 +15,8 @@ const val UI_TOOLING = "androidx.ui:ui-tooling:$VUIVERSION"
 const val UI_LAYOUT = "androidx.ui:ui-layout:$VUIVERSION"
 const val UI_MATERIAL = "androidx.ui:ui-material:$VUIVERSION"
 const val UI_ANIMATION = "androidx.ui:ui-animation:$VUIVERSION"
+const val UI_MATERIAL_ICON = "androidx.ui:ui-material-icons-core:$VUIVERSION"
+const val UI_MATERIAL_ICON_EXTENDED = "androidx.ui:ui-material-icons-extended:$VUIVERSION"
 
 const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$VKOTLIN"
 
