@@ -22,10 +22,12 @@ import androidx.ui.material.TopAppBar
 import androidx.ui.material.icons.Icons
 import androidx.ui.material.icons.filled.Menu
 import androidx.ui.material.ripple.Ripple
+import androidx.ui.res.vectorResource
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
+import com.github.satoshun.example.R
 
 @Composable
 fun HomeScreen(openDrawer: () -> Unit) {
@@ -39,6 +41,17 @@ fun HomeScreen(openDrawer: () -> Unit) {
           Clickable({ openDrawer() }) {
             Container(modifier = LayoutSize(44.dp)) {
               val icon = Icons.Default.Menu
+              DrawVector(icon, tintColor = Color.White)
+            }
+          }
+        }
+      },
+      actionData = listOf("Search"),
+      action = {
+        Ripple(bounded = false) {
+          Clickable({ }) {
+            Container(modifier = LayoutSize(44.dp)) {
+              val icon = vectorResource(id = R.drawable.ic_baseline_search_24)
               DrawVector(icon, tintColor = Color.White)
             }
           }
