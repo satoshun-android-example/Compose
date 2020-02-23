@@ -13,8 +13,10 @@ import androidx.ui.graphics.Color
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
+import androidx.ui.layout.LayoutHeight
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.LayoutSize
+import androidx.ui.layout.Spacer
 import androidx.ui.layout.constraintlayout.ConstraintLayout
 import androidx.ui.layout.constraintlayout.ConstraintSet
 import androidx.ui.material.Tab
@@ -110,16 +112,16 @@ private val data = listOf(
     speaker = null,
     duration = "20min",
     category = "App Bars",
-    icon = null
-  ),
-  HomeItem(
-    startAt = "10:20",
-    title = "UnderStanding Kotlin coroutines: コルーチンで進化するアプリケーション開発",
-    speaker = "mhidaka",
-    duration = "40min",
-    category = "App Bars",
-    icon = null
+    icon = R.drawable.ic_droidkaigi_logo
   )
+//  HomeItem(
+//    startAt = "10:20",
+//    title = "UnderStanding Kotlin coroutines: コルーチンで進化するアプリケーション開発",
+//    speaker = "mhidaka",
+//    duration = "40min",
+//    category = "App Bars",
+//    icon = null
+//  )
 )
 
 @Composable
@@ -130,6 +132,7 @@ private fun HomeItemList() {
         val startTime = tag("startTime")
         val durationAndCategory = tag("durationAndCategory")
         val title = tag("title")
+        val icon = tag("icon")
         val label = tag("label")
 
         startTime.apply {
@@ -138,7 +141,7 @@ private fun HomeItemList() {
         }
         durationAndCategory.apply {
           left constrainTo startTime.right
-          right constrainTo label.left
+//          right constrainTo label.left
           top constrainTo startTime.top
           horizontalBias = 0f
           left.margin = 16.dp
@@ -148,6 +151,11 @@ private fun HomeItemList() {
           top constrainTo durationAndCategory.bottom
           right constrainTo durationAndCategory.right
           horizontalBias = 0f
+          top.margin = 8.dp
+        }
+        icon.apply {
+          left constrainTo title.left
+          top constrainTo title.bottom
           top.margin = 8.dp
         }
         label.apply {
@@ -182,9 +190,17 @@ private fun HomeItemList() {
           )
         )
 
+        if (model.icon is Int) {
+//          Container(modifier = LayoutSize(24.dp) + LayoutTag("icon")) {
+//            val icon = imageResource(id = model.icon)
+//            DrawImage(image = icon)
+//          }
+        }
+
         Container(modifier = LayoutTag("label"), width = 24.dp) {
         }
       }
     }
+    Spacer(modifier = LayoutHeight(26.dp))
   }
 }
