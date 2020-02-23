@@ -34,6 +34,10 @@ sealed class Screen {
     override val name: String = "Row"
   }
 
+  object Column : Screen() {
+    override val name: String = "Column"
+  }
+
   object Text : Screen() {
     override val name: String = "Text"
   }
