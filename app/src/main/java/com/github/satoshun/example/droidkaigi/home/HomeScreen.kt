@@ -1,6 +1,7 @@
 package com.github.satoshun.example.droidkaigi.home
 
 import androidx.compose.Composable
+import androidx.compose.state
 import androidx.ui.core.LayoutTag
 import androidx.ui.core.Text
 import androidx.ui.foundation.AdapterList
@@ -15,6 +16,8 @@ import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.constraintlayout.ConstraintLayout
 import androidx.ui.layout.constraintlayout.ConstraintSet
+import androidx.ui.material.Tab
+import androidx.ui.material.TabRow
 import androidx.ui.material.TopAppBar
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
@@ -38,10 +41,32 @@ fun HomeScreen(openDrawer: () -> Unit) {
         }
       }
     )
+
+    HomeTab()
+
     VerticalScroller(modifier = LayoutFlexible(1f)) {
       Column {
         HomeItemList()
       }
+    }
+  }
+}
+
+@Composable
+fun HomeTab() {
+  val (state, setState) = state { 0 }
+  val titles = listOf("DAY 1", "DAY 2", "EVENT", "MY PLAN")
+
+  Container {
+    TabRow(
+      items = titles,
+      selectedIndex = state
+    ) { index, text ->
+      Tab(
+        text = text,
+        selected = state == index,
+        onSelected = { setState(index) }
+      )
     }
   }
 }
