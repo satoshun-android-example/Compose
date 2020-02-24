@@ -16,7 +16,7 @@ fun DroidKaigiApp() {
 }
 
 @Composable
-private fun DroidKaigiHomeLayout() {
+private fun DroidKaigiHomeLayout(status: DroidkaigiStatus = DroidkaigiStatus()) {
   val (drawerState, onDrawerStateChange) = state { DrawerState.Closed }
   ModalDrawerLayout(
     drawerState = drawerState,
@@ -24,9 +24,9 @@ private fun DroidKaigiHomeLayout() {
     gesturesEnabled = drawerState == DrawerState.Opened,
     drawerContent = {
       DrawerContent(
-        currentScreen = DroidkaigiStatus.currentScreen,
+        currentScreen = status.currentScreen,
         closeDrawer = {
-          DroidkaigiStatus.currentScreen = it
+          status.currentScreen = it
           onDrawerStateChange(DrawerState.Closed)
         }
       )
