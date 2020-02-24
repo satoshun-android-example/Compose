@@ -182,9 +182,9 @@ private fun HomeItemList2() {
       Spacer(modifier = LayoutWidth(16.dp))
 
       Column {
-        Container(width = 24.dp) {
-          //          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
-          //          DrawVector(icon)
+        Container(width = 24.dp, height = 24.dp) {
+//          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
+//          DrawVector(icon)
         }
       }
     }
