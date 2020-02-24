@@ -25,7 +25,10 @@ import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 
 @Composable
-fun DrawerContent() {
+fun DrawerContent(
+  currentScreen: DrawerType,
+  closeDrawer: (type: DrawerType) -> Unit
+) {
   Column(
     modifier = LayoutHeight.Fill,
     arrangement = Arrangement.Begin
@@ -50,7 +53,9 @@ fun DrawerContent() {
     AdapterList(data = data) {
       it.forEach { type ->
         Ripple(bounded = true) {
-          Clickable({}) {
+          Clickable(onClick = {
+            closeDrawer(type)
+          }) {
             Row(
               modifier = LayoutPadding(
                 top = 18.dp,
@@ -61,7 +66,10 @@ fun DrawerContent() {
             ) {
               Container(width = 18.dp, height = 18.dp) {
                 val icon = Icons.Default.Menu
-                DrawVector(icon, tintColor = Color(0xFF041E42))
+                DrawVector(
+                  icon,
+                  tintColor = if (type == currentScreen) Color(0xFF041E42) else Color(0x26000000)
+                )
               }
 
               Spacer(modifier = LayoutWidth(36.dp))
@@ -69,7 +77,7 @@ fun DrawerContent() {
               Text(
                 text = type.title,
                 style = TextStyle(
-                  color = Color(0xFF041E42),
+                  color = if (type == currentScreen) Color(0xFF041E42) else Color(0x26000000),
                   fontSize = 14.sp,
                   fontWeight = FontWeight.W500
                 )

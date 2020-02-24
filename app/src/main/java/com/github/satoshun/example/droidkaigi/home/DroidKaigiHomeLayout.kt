@@ -18,7 +18,13 @@ fun DroidKaigiHomeLayout() {
       onStateChange = onDrawerStateChange,
       gesturesEnabled = drawerState == DrawerState.Opened,
       drawerContent = {
-        DrawerContent()
+        DrawerContent(
+          currentScreen = DroidkaigiStatus.currentScreen,
+          closeDrawer = {
+            DroidkaigiStatus.currentScreen = it
+            onDrawerStateChange(DrawerState.Closed)
+          }
+        )
       },
       bodyContent = {
         AppContent { onDrawerStateChange(DrawerState.Opened) }
