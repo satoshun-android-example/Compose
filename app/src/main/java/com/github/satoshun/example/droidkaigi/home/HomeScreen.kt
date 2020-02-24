@@ -38,6 +38,8 @@ import com.github.satoshun.example.R
 
 @Composable
 fun HomeScreen(openDrawer: () -> Unit) {
+  val (currentTab, setTab) = state { HomeTab.DAY1 }
+
   Column {
     TopAppBar(
       title = {
@@ -70,25 +72,33 @@ fun HomeScreen(openDrawer: () -> Unit) {
       }
     )
 
-    HomeTabLayout()
+    HomeTabLayout(currentTab, setTab)
 
     Surface(color = Color(0xFF041E42)) {
       Spacer(modifier = LayoutWidth.Fill + LayoutHeight(24.dp))
     }
 
     VerticalScroller(modifier = LayoutFlexible(1f)) {
-      Column {
-        HomeFilterItem()
-        //        HomeItemList()
-        HomeItemList2()
+      when (currentTab) {
+        HomeTab.DAY1 -> {
+          Column {
+            HomeFilterItem()
+            HomeItemList2()
+          }
+        }
+        HomeTab.DAY2 -> {
+          Column {
+            HomeFilterItem()
+            HomeItemList()
+          }
+        }
       }
     }
   }
 }
 
 @Composable
-fun HomeTabLayout() {
-  val (state, setState) = state { HomeTab.DAY1 }
+fun HomeTabLayout(currentTab: HomeTab, setTab: (HomeTab) -> Unit) {
   val titles = listOf(HomeTab.DAY1, HomeTab.DAY2, HomeTab.EVENT, HomeTab.MYPLAN)
 
   Container {
@@ -96,12 +106,12 @@ fun HomeTabLayout() {
       items = titles,
       divider = {
       },
-      selectedIndex = state.index
+      selectedIndex = currentTab.index
     ) { index, tab ->
       Tab(
         text = tab.title,
-        selected = state.index == index,
-        onSelected = { setState(tab) }
+        selected = currentTab.index == index,
+        onSelected = { setTab(tab) }
       )
     }
   }
