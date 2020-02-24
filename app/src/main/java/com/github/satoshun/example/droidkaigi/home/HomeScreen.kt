@@ -70,7 +70,7 @@ fun HomeScreen(openDrawer: () -> Unit) {
       }
     )
 
-    HomeTab()
+    HomeTabLayout()
 
     Surface(color = Color(0xFF041E42)) {
       Spacer(modifier = LayoutWidth.Fill + LayoutHeight(24.dp))
@@ -87,21 +87,21 @@ fun HomeScreen(openDrawer: () -> Unit) {
 }
 
 @Composable
-fun HomeTab() {
-  val (state, setState) = state { 0 }
-  val titles = listOf("DAY 1", "DAY 2", "EVENT", "MY PLAN")
+fun HomeTabLayout() {
+  val (state, setState) = state { HomeTab.DAY1 }
+  val titles = listOf(HomeTab.DAY1, HomeTab.DAY2, HomeTab.EVENT, HomeTab.MYPLAN)
 
   Container {
     TabRow(
       items = titles,
       divider = {
       },
-      selectedIndex = state
-    ) { index, text ->
+      selectedIndex = state.index
+    ) { index, tab ->
       Tab(
-        text = text,
-        selected = state == index,
-        onSelected = { setState(index) }
+        text = tab.title,
+        selected = state.index == index,
+        onSelected = { setState(tab) }
       )
     }
   }
@@ -183,7 +183,7 @@ private fun HomeItemList2() {
 
       Column {
         Container(width = 24.dp, height = 24.dp) {
-//          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
+          //          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
 //          DrawVector(icon)
         }
       }
