@@ -11,7 +11,7 @@ const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VKOTLIN"
 
 private const val VUIVERSION = "0.1.0-dev05"
 //private const val VUIVERSION = "0.1.0-SNAPSHOT"
-const val COMPOSE = "androidx.compose:compose-runtime:$VUIVERSION"
+const val COMPOSE = "androidx.compose:compose-runtime:0.1.0-SNAPSHOT"
 const val UI_TOOLING = "androidx.ui:ui-tooling:$VUIVERSION"
 const val UI_LAYOUT = "androidx.ui:ui-layout:$VUIVERSION"
 const val UI_MATERIAL = "androidx.ui:ui-material:$VUIVERSION"

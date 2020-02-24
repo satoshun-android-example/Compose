@@ -73,6 +73,7 @@ fun HomeScreen(openDrawer: () -> Unit) {
 
     VerticalScroller(modifier = LayoutFlexible(1f)) {
       Column {
+        HomeFilterItem()
         //        HomeItemList()
         HomeItemList2()
       }
@@ -175,7 +176,7 @@ private fun HomeItemList2() {
 
       Column {
         Container(width = 24.dp) {
-//          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
+          //          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
           //          DrawVector(icon)
         }
       }
