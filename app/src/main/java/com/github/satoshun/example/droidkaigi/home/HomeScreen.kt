@@ -27,6 +27,7 @@ import androidx.ui.material.TopAppBar
 import androidx.ui.material.icons.Icons
 import androidx.ui.material.icons.filled.Menu
 import androidx.ui.material.ripple.Ripple
+import androidx.ui.material.surface.Surface
 import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
 import androidx.ui.text.TextStyle
@@ -71,6 +72,10 @@ fun HomeScreen(openDrawer: () -> Unit) {
 
     HomeTab()
 
+    Surface(color = Color(0xFF041E42)) {
+      Spacer(modifier = LayoutWidth.Fill + LayoutHeight(24.dp))
+    }
+
     VerticalScroller(modifier = LayoutFlexible(1f)) {
       Column {
         HomeFilterItem()
@@ -89,6 +94,8 @@ fun HomeTab() {
   Container {
     TabRow(
       items = titles,
+      divider = {
+      },
       selectedIndex = state
     ) { index, text ->
       Tab(
