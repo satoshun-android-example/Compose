@@ -16,6 +16,8 @@ import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutHeight
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.LayoutSize
+import androidx.ui.layout.LayoutWidth
+import androidx.ui.layout.Row
 import androidx.ui.layout.Spacer
 import androidx.ui.layout.constraintlayout.ConstraintLayout
 import androidx.ui.layout.constraintlayout.ConstraintSet
@@ -71,7 +73,8 @@ fun HomeScreen(openDrawer: () -> Unit) {
 
     VerticalScroller(modifier = LayoutFlexible(1f)) {
       Column {
-        HomeItemList()
+        //        HomeItemList()
+        HomeItemList2()
       }
     }
   }
@@ -113,16 +116,74 @@ private val data = listOf(
     duration = "20min",
     category = "App Bars",
     icon = R.drawable.ic_droidkaigi_logo
+  ),
+  HomeItem(
+    startAt = "10:20",
+    title = "UnderStanding Kotlin coroutines: コルーチンで進化するアプリケーション開発",
+    speaker = "mhidaka",
+    duration = "40min",
+    category = "App Bars",
+    icon = null
   )
-//  HomeItem(
-//    startAt = "10:20",
-//    title = "UnderStanding Kotlin coroutines: コルーチンで進化するアプリケーション開発",
-//    speaker = "mhidaka",
-//    duration = "40min",
-//    category = "App Bars",
-//    icon = null
-//  )
 )
+
+@Composable
+private fun HomeItemList2() {
+  AdapterList(data = data) { model ->
+    Row(modifier = LayoutPadding(12.dp)) {
+      Column {
+        Text(
+          text = model.startAt,
+          style = TextStyle(
+            fontSize = 16.sp,
+            color = Color(0x95000000),
+            fontWeight = FontWeight.W500
+          )
+        )
+      }
+
+      Spacer(modifier = LayoutWidth(16.dp))
+
+      Column(modifier = LayoutFlexible(flex = 1f)) {
+        Text(
+          modifier = LayoutTag("durationAndCategory"),
+          text = "${model.duration} / ${model.category}",
+          style = TextStyle(fontSize = 12.sp, color = Color(0x95000000))
+        )
+
+        Spacer(modifier = LayoutHeight(8.dp))
+
+        Text(
+          modifier = LayoutTag("title"),
+          text = model.title,
+          style = TextStyle(
+            fontSize = 20.sp,
+            color = Color(0xFF041E42),
+            fontWeight = FontWeight.W500
+          )
+        )
+
+        if (model.icon is Int) {
+//          Container(modifier = LayoutSize(24.dp) + LayoutTag("icon")) {
+//            val icon = imageResource(id = model.icon)
+//            DrawImage(image = icon)
+//          }
+        }
+      }
+
+      Spacer(modifier = LayoutWidth(16.dp))
+
+      Column {
+        Container(width = 24.dp) {
+//          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
+          //          DrawVector(icon)
+        }
+      }
+    }
+
+    Spacer(modifier = LayoutHeight(26.dp))
+  }
+}
 
 @Composable
 private fun HomeItemList() {

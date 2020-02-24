@@ -5,7 +5,7 @@ import androidx.compose.state
 import androidx.ui.material.DrawerState
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.ModalDrawerLayout
-import androidx.ui.material.surface.Surface
+import androidx.ui.tooling.preview.Preview
 import com.github.satoshun.example.droidkaigi.lightThemeColors
 
 @Composable
@@ -29,8 +29,11 @@ fun DroidKaigiHomeLayout() {
 
 @Composable
 private fun AppContent(openDrawer: () -> Unit) {
-//  Surface(color = (MaterialTheme.colors()).background) {
-  Surface {
-    HomeScreen { openDrawer() }
-  }
+  HomeScreen { openDrawer() }
+}
+
+@Preview
+@Composable
+private fun AppContentPreview() {
+  HomeScreen { }
 }
