@@ -12,6 +12,7 @@ import com.github.satoshun.example.flex.ExampleFlex
 import com.github.satoshun.example.layout.ColumnExample
 import com.github.satoshun.example.layout.RowExample
 import com.github.satoshun.example.layout.SpacerExample
+import com.github.satoshun.example.puyo.PuyoApp
 
 @Composable
 fun ExampleApp(screenStatus: ScreenStatus) {
@@ -28,6 +29,7 @@ fun ExampleApp(screenStatus: ScreenStatus) {
     Screen.Column -> ColumnExample()
     Screen.Text -> TextExample()
     Screen.DroidKaigiHome -> DroidKaigiApp()
+    Screen.Puyo -> PuyoApp()
   }
 }
 

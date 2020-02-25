@@ -46,6 +46,10 @@ sealed class Screen {
     override val name: String = "DroidKaigiHome"
   }
 
+  object Puyo : Screen() {
+    override val name: String = "Puyo"
+  }
+
   companion object {
     val detailScreens = listOf(
       ConstraintLayout,
