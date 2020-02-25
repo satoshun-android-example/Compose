@@ -36,8 +36,10 @@ fun HomeFilterItem() {
           arrangement = Arrangement.End
         ) {
           Container(modifier = LayoutSize(22.dp)) {
-            val icon = vectorResource(id = R.drawable.ic_baseline_filter_list_24)
-            DrawVector(icon, tintColor = Color.Black)
+            DrawVector(
+              vectorImage = vectorResource(id = R.drawable.ic_baseline_filter_list_24),
+              tintColor = Color.Black
+            )
           }
 
           Spacer(modifier = LayoutWidth(8.dp))

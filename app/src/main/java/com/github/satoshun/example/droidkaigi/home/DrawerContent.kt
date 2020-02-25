@@ -65,9 +65,8 @@ fun DrawerContent(
               ) + LayoutWidth.Fill
             ) {
               Container(width = 18.dp, height = 18.dp) {
-                val icon = Icons.Default.Menu
                 DrawVector(
-                  icon,
+                  vectorImage = Icons.Default.Menu,
                   tintColor = if (type == currentScreen) Color(0xFF041E42) else Color(0x26000000)
                 )
               }
