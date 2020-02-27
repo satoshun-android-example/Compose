@@ -4,6 +4,7 @@ import androidx.compose.Composable
 import androidx.ui.foundation.AdapterList
 import androidx.ui.material.ListItem
 import com.github.satoshun.example.adapterlist.ExampleAdapterList
+import com.github.satoshun.example.compose.StateExample
 import com.github.satoshun.example.constraintlayout.ConstraintChainExample
 import com.github.satoshun.example.constraintlayout.ConstraintExample
 import com.github.satoshun.example.core.TextExample
@@ -30,6 +31,7 @@ fun ExampleApp(screenStatus: ScreenStatus) {
     Screen.Text -> TextExample()
     Screen.DroidKaigiHome -> DroidKaigiApp()
     Screen.Puyo -> PuyoApp()
+    Screen.State -> StateExample()
   }
 }
 

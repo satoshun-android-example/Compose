@@ -29,10 +29,7 @@ fun DrawerContent(
   currentScreen: DrawerType,
   closeDrawer: (type: DrawerType) -> Unit
 ) {
-  Column(
-    modifier = LayoutHeight.Fill,
-    arrangement = Arrangement.Begin
-  ) {
+  Column(modifier = LayoutHeight.Fill) {
     Row(modifier = LayoutHeight(168.dp)) {
       Container(modifier = LayoutSize(60.dp)) {
         //        val icon = imageResource(id = R.drawable.ic_droidkaigi_logo)
