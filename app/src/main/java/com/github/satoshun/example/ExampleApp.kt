@@ -2,6 +2,7 @@ package com.github.satoshun.example
 
 import androidx.compose.Composable
 import androidx.ui.foundation.AdapterList
+import androidx.ui.layout.Column
 import androidx.ui.material.ListItem
 import com.github.satoshun.example.adapterlist.ExampleAdapterList
 import com.github.satoshun.example.compose.StateExample
@@ -18,7 +19,7 @@ import com.github.satoshun.example.puyo.PuyoApp
 @Composable
 fun ExampleApp(screenStatus: ScreenStatus) {
   when (screenStatus.currentScreen) {
-    Screen.Home -> ExampleHomeApp(screenStatus)
+    Screen.Home -> ExampleHomeApp2(screenStatus)
     Screen.ConstraintLayout -> {
       ConstraintExample()
       ConstraintChainExample()
@@ -36,10 +37,21 @@ fun ExampleApp(screenStatus: ScreenStatus) {
 }
 
 @Composable
-fun ExampleHomeApp(screenStatus: ScreenStatus) {
+private fun ExampleHomeApp(screenStatus: ScreenStatus) {
   AdapterList(Screen.detailScreens) { screen ->
     ListItem(text = screen.name, onClick = {
       screenStatus.currentScreen = screen
     })
+  }
+}
+
+@Composable
+private fun ExampleHomeApp2(screenStatus: ScreenStatus) {
+  Column {
+    Screen.detailScreens.forEach { screen ->
+      ListItem(text = screen.name, onClick = {
+        screenStatus.currentScreen = screen
+      })
+    }
   }
 }

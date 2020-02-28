@@ -11,7 +11,6 @@ import androidx.ui.layout.Column
 import androidx.ui.layout.ColumnScope
 import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
-import androidx.ui.material.Divider
 import androidx.ui.material.ripple.Ripple
 import androidx.ui.unit.dp
 
@@ -28,8 +27,6 @@ data class Remember2Test(
 fun StateExample() {
   var count by state { 0 }
   val (count2, count2Callback) = state { 0 }
-  val count3 by state { RememberTest() }
-  val count4 by state { Remember2Test() }
 
   Column {
     println("1")
@@ -62,41 +59,111 @@ fun StateExample() {
       }
     }
 
-    println("1111")
-    Ripple(bounded = false) {
-      println("2222")
-      Clickable(onClick = {
-        println("onClick")
-        count3.count += 1
-      }) {
-        println("3333")
-        Container(LayoutPadding(24.dp)) {
-          println("4444")
-          Text(text = count3.count.toString())
-        }
-      }
-    }
-
-    println("11111")
-    Ripple(bounded = false) {
-      println("22222")
-      Clickable(onClick = {
-        println("onClick")
-        count4.count += 1
-      }) {
-        println("33333")
-        Container(LayoutPadding(24.dp)) {
-          println("44444")
-          Text(text = count4.count.toString())
-        }
-      }
-    }
-
-
-
+    OnlyState()
+    ModelAndState()
     OnlyModel()
 
+    PassModelValue()
+
     Remember()
+  }
+}
+
+@Composable
+private fun PassModelValue() {
+  val count = Remember2Test()
+
+  Container(LayoutPadding(left = 24.dp)) {
+    Text(text = "Parent Model")
+  }
+
+  println("a")
+  Ripple(bounded = false) {
+    println("b")
+    Clickable(onClick = {
+      println("onClick")
+      count.count += 1
+    }) {
+      println("c")
+      Container(LayoutPadding(24.dp)) {
+        println("d")
+        Text(text = count.count.toString())
+      }
+    }
+  }
+
+  PassChildValue(count = count)
+}
+
+@Composable
+private fun PassChildValue(count: Remember2Test) {
+  Container(LayoutPadding(left = 24.dp)) {
+    Text(text = "Child Model")
+  }
+
+  println("aa")
+  Ripple(bounded = false) {
+    println("bb")
+    Clickable(onClick = {
+      println("onClick")
+      count.count += 1
+    }) {
+      println("cc")
+      Container(LayoutPadding(24.dp)) {
+        println("dd")
+        Text(text = count.count.toString())
+      }
+    }
+  }
+}
+
+// NG
+@Composable
+private fun ColumnScope.OnlyState() {
+  val count by state { RememberTest() }
+
+  Container(LayoutPadding(left = 24.dp)) {
+    Text(text = "Only State")
+  }
+
+  println("111")
+  Ripple(bounded = false) {
+    println("222")
+    Clickable(onClick = {
+      println("onClick")
+      count.count += 1
+    }) {
+      println("333")
+      Container(LayoutPadding(24.dp)) {
+        println("444")
+        Text(text = count.count.toString())
+      }
+    }
+  }
+}
+
+// OK
+@Composable
+private fun ColumnScope.ModelAndState() {
+  val count by state { Remember2Test() }
+
+  Container(LayoutPadding(left = 24.dp)) {
+    Text(text = "Model and State")
+  }
+
+  println("11111")
+  Ripple(bounded = false) {
+    println("22222")
+    Clickable(onClick = {
+      println("onClick")
+      count.count += 1
+    }) {
+      println("33333")
+      Container(LayoutPadding(24.dp)) {
+        println("44444")
+        Text(text = count.count.toString())
+      }
+    }
   }
 }
 
@@ -131,6 +198,7 @@ private fun ColumnScope.StateFor(id: Int): Int {
   return count.value
 }
 
+// NG
 @Composable
 private fun ColumnScope.Remember() {
   val count = remember { RememberTest() }
