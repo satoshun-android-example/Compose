@@ -61,12 +61,11 @@ dependencies {
   implementation UI_MATERIAL_ICON_EXTENDED
   implementation UI_ANIMATION
   implementation UI_PLATFORM
+  implementation UI_VECTOR
+  implementation UI_UTIL
+  implementation UI_FRAMEWORK
 
   implementation ACTIVITYX
-
-  implementation OKHTTP
-  implementation OKHTTP_LOGGING
-  implementation RETROFIT
 
   testImplementation JUNIT
 
