@@ -8,6 +8,7 @@ import com.github.satoshun.example.adapterlist.ExampleAdapterList
 import com.github.satoshun.example.compose.StateExample
 import com.github.satoshun.example.constraintlayout.ConstraintChainExample
 import com.github.satoshun.example.constraintlayout.ConstraintExample
+import com.github.satoshun.example.core.ModelObserverExample
 import com.github.satoshun.example.core.TextExample
 import com.github.satoshun.example.droidkaigi.home.DroidKaigiApp
 import com.github.satoshun.example.flex.ExampleFlex
@@ -33,6 +34,7 @@ fun ExampleApp(screenStatus: ScreenStatus) {
     Screen.DroidKaigiHome -> DroidKaigiApp()
     Screen.Puyo -> PuyoApp()
     Screen.State -> StateExample()
+    Screen.ModelObserver -> ModelObserverExample()
   }
 }
 

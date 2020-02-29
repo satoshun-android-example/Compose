@@ -54,13 +54,18 @@ sealed class Screen {
     override val name: String = "State"
   }
 
+  object ModelObserver : Screen() {
+    override val name: String = "ModelObserver"
+  }
+
   companion object {
     val detailScreens = listOf(
       ConstraintLayout,
       Flex,
       AdapterList,
       Spacer,
-      Row
+      Row,
+      ModelObserver
     )
   }
 }
