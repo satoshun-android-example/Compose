@@ -62,6 +62,7 @@ sealed class Screen {
       Spacer,
       Row,
       ModelObserver,
+      State,
       Dialog
     )
   }

@@ -11,17 +11,25 @@ import androidx.ui.layout.Column
 import androidx.ui.layout.ColumnScope
 import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
+import androidx.ui.material.Checkbox
 import androidx.ui.material.ripple.Ripple
 import androidx.ui.unit.dp
 
-data class RememberTest(
+class RememberTest(
   var count: Int = 0
 )
 
 @Model
-data class Remember2Test(
+class Remember2Test(
   var count: Int = 0
 )
+
+@Composable
+fun MyCheckbox() {
+  var checked by state { false }
+
+  Checkbox(checked = checked, onCheckedChange = { checked = it })
+}
 
 @Composable
 fun StateExample() {
@@ -29,6 +37,8 @@ fun StateExample() {
   val (count2, count2Callback) = state { 0 }
 
   Column {
+    MyCheckbox()
+
     println("1")
     Ripple(bounded = false) {
       println("2")
