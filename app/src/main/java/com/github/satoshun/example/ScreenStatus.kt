@@ -42,10 +42,6 @@ sealed class Screen {
     override val name: String = "Text"
   }
 
-  object Puyo : Screen() {
-    override val name: String = "Puyo"
-  }
-
   object State : Screen() {
     override val name: String = "State"
   }
