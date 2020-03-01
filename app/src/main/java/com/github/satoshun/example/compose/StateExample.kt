@@ -24,6 +24,16 @@ class Remember2Test(
   var count: Int = 0
 )
 
+@Model
+class Remember3Test {
+  var count: Int = 0
+    private set
+
+  fun addCount() {
+    count += 1
+  }
+}
+
 @Composable
 fun MyCheckbox() {
   var checked by state { false }
@@ -76,6 +86,7 @@ fun StateExample() {
     PassModelValue()
 
     Remember()
+    PrivatePropertyModel()
   }
 }
 
@@ -223,6 +234,30 @@ private fun ColumnScope.Remember() {
       println("333")
       Container(LayoutPadding(24.dp)) {
         println("444")
+        Text(text = count.count.toString())
+      }
+    }
+  }
+}
+
+@Composable
+private fun ColumnScope.PrivatePropertyModel() {
+  val count = Remember3Test()
+
+  Container(LayoutPadding(left = 24.dp)) {
+    Text(text = "PrivatePropertyModel")
+  }
+
+  println("111111")
+  Ripple(bounded = false) {
+    println("222222")
+    Clickable(onClick = {
+      println("onClick")
+      count.addCount()
+    }) {
+      println("333333")
+      Container(LayoutPadding(24.dp)) {
+        println("444444")
         Text(text = count.count.toString())
       }
     }
