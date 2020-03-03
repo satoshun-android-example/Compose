@@ -54,10 +54,6 @@ sealed class Screen {
     override val name: String = "Dialog"
   }
 
-  object MVVM : Screen() {
-    override val name: String = "MVVM"
-  }
-
   companion object {
     val detailScreens = listOf(
       ConstraintLayout,
@@ -67,8 +63,7 @@ sealed class Screen {
       Row,
       ModelObserver,
       State,
-      Dialog,
-      MVVM
+      Dialog
     )
   }
 }

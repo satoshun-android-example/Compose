@@ -9,8 +9,8 @@ private const val VKOTLIN = "1.3.61"
 const val ANDROID_PLUGIN = "com.android.tools.build:gradle:4.1.0-alpha01"
 const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VKOTLIN"
 
-//private const val VUIVERSION = "0.1.0-dev05"
-private const val VUIVERSION = "0.1.0-SNAPSHOT"
+private const val VUIVERSION = "0.1.0-dev05"
+//private const val VUIVERSION = "0.1.0-SNAPSHOT"
 const val COMPOSE = "androidx.compose:compose-runtime:$VUIVERSION"
 const val UI_TOOLING = "androidx.ui:ui-tooling:$VUIVERSION"
 const val UI_LAYOUT = "androidx.ui:ui-layout:$VUIVERSION"
@@ -30,8 +30,8 @@ const val COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$VCOUROUTIN
 const val UI_COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$VCOUROUTINE"
 
 const val KTX = "androidx.core:core-ktx:1.1.0"
-const val ACTIVITYX = "androidx.activity:activity-ktx:1.0.0"
-const val FRAGMENTX = "androidx.fragment:fragment-ktx:1.1.0"
+const val ACTIVITYX = "androidx.activity:activity-ktx:1.1.0"
+const val FRAGMENTX = "androidx.fragment:fragment-ktx:1.2.0"
 
 const val LIFECYCLE_COMMON = "androidx.lifecycle:lifecycle-common-java8:2.2.0"
 const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"

@@ -15,7 +15,6 @@ import com.github.satoshun.example.foundation.DialogExample
 import com.github.satoshun.example.layout.ColumnExample
 import com.github.satoshun.example.layout.RowExample
 import com.github.satoshun.example.layout.SpacerExample
-import com.github.satoshun.example.mvvm.MVVMApp
 
 @Composable
 fun ExampleApp(screenStatus: ScreenStatus) {
@@ -34,7 +33,6 @@ fun ExampleApp(screenStatus: ScreenStatus) {
     Screen.Dialog -> DialogExample()
     Screen.State -> StateExample()
     Screen.ModelObserver -> ModelObserverExample()
-    Screen.MVVM -> MVVMApp()
   }
 }
 

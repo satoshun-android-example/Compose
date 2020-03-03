@@ -3,4 +3,4 @@ include ':puyo'
 include ':dialog'
 include ':droidkaigi'
 
-include ':mvvm'
+//include ':mvvm'
