@@ -1,6 +1,6 @@
-include ':app'
-include ':puyo'
-include ':dialog'
-include ':droidkaigi'
+//include ':app'
+//include ':puyo'
+//include ':dialog'
+//include ':droidkaigi'
 
-//include ':mvvm'
+include ':mvvm'
