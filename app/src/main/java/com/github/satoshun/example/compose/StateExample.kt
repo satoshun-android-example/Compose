@@ -94,7 +94,7 @@ fun StateExample() {
 private fun PassModelValue() {
   val count = Remember2Test()
 
-  Container(LayoutPadding(left = 24.dp)) {
+  Container(LayoutPadding(start = 24.dp)) {
     Text(text = "Parent Model")
   }
 
@@ -118,7 +118,7 @@ private fun PassModelValue() {
 
 @Composable
 private fun PassChildValue(count: Remember2Test) {
-  Container(LayoutPadding(left = 24.dp)) {
+  Container(LayoutPadding(start = 24.dp)) {
     Text(text = "Child Model")
   }
 
@@ -143,7 +143,7 @@ private fun PassChildValue(count: Remember2Test) {
 private fun ColumnScope.OnlyState() {
   val count by state { RememberTest() }
 
-  Container(LayoutPadding(left = 24.dp)) {
+  Container(LayoutPadding(start = 24.dp)) {
     Text(text = "Only State")
   }
 
@@ -168,7 +168,7 @@ private fun ColumnScope.OnlyState() {
 private fun ColumnScope.ModelAndState() {
   val count by state { Remember2Test() }
 
-  Container(LayoutPadding(left = 24.dp)) {
+  Container(LayoutPadding(start = 24.dp)) {
     Text(text = "Model and State")
   }
 
@@ -193,7 +193,7 @@ private fun ColumnScope.ModelAndState() {
 private fun ColumnScope.OnlyModel() {
   val count = Remember2Test()
 
-  Container(LayoutPadding(left = 24.dp)) {
+  Container(LayoutPadding(start = 24.dp)) {
     Text(text = "Only Model")
   }
 
@@ -244,7 +244,7 @@ private fun ColumnScope.Remember() {
 private fun ColumnScope.PrivatePropertyModel() {
   val count = Remember3Test()
 
-  Container(LayoutPadding(left = 24.dp)) {
+  Container(LayoutPadding(start = 24.dp)) {
     Text(text = "PrivatePropertyModel")
   }
 

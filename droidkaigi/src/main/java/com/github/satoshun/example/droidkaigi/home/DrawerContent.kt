@@ -6,7 +6,6 @@ import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.Clickable
 import androidx.ui.graphics.Color
 import androidx.ui.graphics.vector.DrawVector
-import androidx.ui.layout.Arrangement
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutHeight
@@ -57,8 +56,8 @@ fun DrawerContent(
               modifier = LayoutPadding(
                 top = 18.dp,
                 bottom = 18.dp,
-                left = 26.dp,
-                right = 26.dp
+                start = 26.dp,
+                end = 26.dp
               ) + LayoutWidth.Fill
             ) {
               Container(width = 18.dp, height = 18.dp) {

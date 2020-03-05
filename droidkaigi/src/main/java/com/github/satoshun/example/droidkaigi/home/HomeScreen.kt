@@ -7,9 +7,10 @@ import androidx.ui.core.Text
 import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.Box
 import androidx.ui.foundation.Clickable
-import androidx.ui.foundation.DrawImage
+import androidx.ui.foundation.SimpleImage
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
+import androidx.ui.graphics.Image
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
@@ -46,7 +47,7 @@ fun HomeScreen(openDrawer: () -> Unit) {
         Text(text = "")
         Container(modifier = LayoutSize(24.dp)) {
           val icon = imageResource(id = R.drawable.ic_droidkaigi_logo)
-          DrawImage(image = icon)
+          SimpleImage(image = icon)
         }
       },
       navigationIcon = {
@@ -59,8 +60,7 @@ fun HomeScreen(openDrawer: () -> Unit) {
           }
         }
       },
-      actionData = listOf("Search"),
-      action = {
+      actions = {
         Ripple(bounded = false) {
           Clickable({ }) {
             Container(modifier = LayoutSize(44.dp)) {
@@ -109,7 +109,9 @@ fun HomeTabLayout(currentTab: HomeTab, setTab: (HomeTab) -> Unit) {
       selectedIndex = currentTab.index
     ) { index, tab ->
       Tab(
-        text = tab.title,
+        text = {
+          Text(text = tab.title)
+        },
         selected = currentTab.index == index,
         onSelected = { setTab(tab) }
       )

@@ -32,7 +32,7 @@ fun HomeFilterItem() {
     ) {
       Column {
         Row(
-          modifier = LayoutPadding(top = 18.dp, bottom = 18.dp, right = 24.dp) + LayoutWidth.Fill,
+          modifier = LayoutPadding(top = 18.dp, bottom = 18.dp, end = 24.dp) + LayoutWidth.Fill,
           arrangement = Arrangement.End
         ) {
           Container(modifier = LayoutSize(22.dp)) {
@@ -57,7 +57,7 @@ fun HomeFilterItem() {
         }
 
         Divider(
-          modifier = LayoutPadding(left = 16.dp, right = 16.dp),
+          modifier = LayoutPadding(start = 16.dp, end = 16.dp),
           color = Color(0x10202020)
         )
       }
