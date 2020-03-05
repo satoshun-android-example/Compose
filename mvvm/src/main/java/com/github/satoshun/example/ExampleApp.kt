@@ -7,8 +7,15 @@ import androidx.compose.ambientOf
 import androidx.compose.remember
 import androidx.lifecycle.ViewModel
 import androidx.ui.core.Text
+import androidx.ui.graphics.Color
+import androidx.ui.layout.Column
 import androidx.ui.layout.Container
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.LayoutPadding
+import androidx.ui.layout.Spacer
 import androidx.ui.material.Button
+import androidx.ui.material.Divider
+import androidx.ui.unit.dp
 
 class ExampleViewModel : ViewModel() {
   val uiModel = UiModel()
@@ -25,33 +32,68 @@ class UiModel {
 }
 
 val exampleViewModelAmbient = ambientOf<ExampleViewModel> { error("not ViewModel") }
+val exampleUiModelAmbient = ambientOf<UiModel> { error("not ViewModel") }
 
 @Composable
 fun ExampleApp() {
   val viewModel = remember { ExampleViewModel() }
-  ChildContainer1(viewModel, viewModel.uiModel)
+
+  Providers(
+    exampleViewModelAmbient provides viewModel,
+    exampleUiModelAmbient provides viewModel.uiModel
+  ) {
+    Column(LayoutPadding(24.dp)) {
+      ChildContainer1 {
+        viewModel.onClicked()
+      }
+      Spacer(LayoutHeight(24.dp))
+      ChildContainer1 {
+        viewModel.onClicked()
+      }
+      Spacer(LayoutHeight(24.dp))
+      ChildContainer2()
+
+      Spacer(LayoutHeight(18.dp))
+      Divider(color = Color.Blue)
+      Spacer(LayoutHeight(18.dp))
+
+      val viewModel2 = remember { ExampleViewModel() }
+      Providers(
+        exampleViewModelAmbient provides viewModel2,
+        exampleUiModelAmbient provides viewModel2.uiModel
+      ) {
+        ChildContainer2()
+      }
+
+      Spacer(LayoutHeight(18.dp))
+      Divider(color = Color.Blue)
+      Spacer(LayoutHeight(18.dp))
+
+      ChildContainer2()
+    }
+  }
 }
 
 @Composable
-private fun ChildContainer1(
-  viewModel: ExampleViewModel,
-  uiModel: UiModel
-) {
+private fun ChildContainer1(addCount: () -> Unit) {
+  val viewModel = exampleViewModelAmbient.current
+  val uiModel = exampleUiModelAmbient.current
+
   Container {
-    Button(onClick = { viewModel.onClicked() }) {
+    Button(onClick = addCount) {
       Text(text = uiModel.count.toString())
     }
   }
 }
 
-//@Composable
-//fun ExampleApp() {
-//  Providers(exampleViewModelAmbient provides ExampleViewModel()) {
-//    ChildContainer1()
-//  }
-//}
-//
-//@Composable
-//private fun ChildContainer1() {
-//  exampleViewModelAmbient.current
-//}
+@Composable
+private fun ChildContainer2() {
+  val viewModel = exampleViewModelAmbient.current
+  val uiModel = exampleUiModelAmbient.current
+
+  Container {
+    Button(onClick = viewModel::onClicked) {
+      Text(text = uiModel.count.toString())
+    }
+  }
+}
