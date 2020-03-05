@@ -54,6 +54,10 @@ sealed class Screen {
     override val name: String = "Dialog"
   }
 
+  object Stack : Screen() {
+    override val name: String = "Stack"
+  }
+
   companion object {
     val detailScreens = listOf(
       ConstraintLayout,
@@ -63,7 +67,8 @@ sealed class Screen {
       Row,
       ModelObserver,
       State,
-      Dialog
+      Dialog,
+      Stack
     )
   }
 }
