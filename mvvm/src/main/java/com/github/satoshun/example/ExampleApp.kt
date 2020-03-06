@@ -6,6 +6,7 @@ import androidx.compose.Providers
 import androidx.compose.ambientOf
 import androidx.compose.remember
 import androidx.lifecycle.ViewModel
+import androidx.ui.core.ContextAmbient
 import androidx.ui.core.Text
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
@@ -31,11 +32,12 @@ class UiModel {
   var count = 0
 }
 
-val exampleViewModelAmbient = ambientOf<ExampleViewModel> { error("not ViewModel") }
+val exampleViewModelAmbient = ambientOf<ExampleViewModel>()
 val exampleUiModelAmbient = ambientOf<UiModel> { error("not ViewModel") }
 
 @Composable
 fun ExampleApp() {
+  ContextAmbient
   val viewModel = remember { ExampleViewModel() }
 
   Providers(
