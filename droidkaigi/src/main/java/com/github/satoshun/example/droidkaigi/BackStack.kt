@@ -13,5 +13,5 @@ class BackStack(
 
 sealed class Screen {
   object Home : Screen()
-  class SessionDetail(from: HomeItem) : Screen()
+  class SessionDetail(val from: HomeItem) : Screen()
 }

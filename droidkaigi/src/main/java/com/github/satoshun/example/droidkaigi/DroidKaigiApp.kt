@@ -3,8 +3,8 @@ package com.github.satoshun.example.droidkaigi
 import androidx.compose.Composable
 import androidx.compose.Providers
 import androidx.ui.material.MaterialTheme
-import com.github.satoshun.example.droidkaigi.home.DroidKaigiHomeLayout
-import com.github.satoshun.example.droidkaigi.sessiondetail.DroidKaigiSessionDetailLayout
+import com.github.satoshun.example.droidkaigi.home.DroidKaigiHomeScreen
+import com.github.satoshun.example.droidkaigi.sessiondetail.DroidKaigiSessionDetailScreen
 
 @Composable
 fun DroidKaigiApp() {
@@ -12,9 +12,9 @@ fun DroidKaigiApp() {
     Providers(
       BackStackAmbient provides BackStack()
     ) {
-      when (BackStackAmbient.current.currentScreen) {
-        Screen.Home -> DroidKaigiHomeLayout()
-        is Screen.SessionDetail -> DroidKaigiSessionDetailLayout()
+      when (val currentScreen = BackStackAmbient.current.currentScreen) {
+        Screen.Home -> DroidKaigiHomeScreen()
+        is Screen.SessionDetail -> DroidKaigiSessionDetailScreen(currentScreen.from)
       }
     }
   }

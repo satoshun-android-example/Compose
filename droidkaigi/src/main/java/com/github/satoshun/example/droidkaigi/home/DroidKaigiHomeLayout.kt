@@ -7,7 +7,7 @@ import androidx.ui.material.ModalDrawerLayout
 import androidx.ui.tooling.preview.Preview
 
 @Composable
-fun DroidKaigiHomeLayout(status: DroidkaigiStatus = DroidkaigiStatus()) {
+fun DroidKaigiHomeScreen(status: DroidkaigiStatus = DroidkaigiStatus()) {
   val (drawerState, onDrawerStateChange) = state { DrawerState.Closed }
   ModalDrawerLayout(
     drawerState = drawerState,
