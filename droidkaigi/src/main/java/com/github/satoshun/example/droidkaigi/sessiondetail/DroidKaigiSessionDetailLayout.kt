@@ -2,6 +2,7 @@ package com.github.satoshun.example.droidkaigi.sessiondetail
 
 import androidx.compose.Composable
 import androidx.ui.core.Text
+import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
@@ -10,11 +11,13 @@ import androidx.ui.layout.LayoutHeight
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.LayoutSize
 import androidx.ui.layout.Row
+import androidx.ui.material.ripple.Ripple
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 import com.github.satoshun.example.R
+import com.github.satoshun.example.droidkaigi.BackStackAmbient
 import com.github.satoshun.example.droidkaigi.VectorImage
 import com.github.satoshun.example.droidkaigi.home.HomeItem
 
@@ -22,8 +25,13 @@ import com.github.satoshun.example.droidkaigi.home.HomeItem
 fun DroidKaigiSessionDetailScreen(fromItem: HomeItem) {
   VerticalScroller {
     Column {
-      Container(LayoutSize(56.dp)) {
-        VectorImage(id = R.drawable.ic_baseline_arrow_back_24, tintColor = Color.Black)
+      Ripple(bounded = false) {
+        val current = BackStackAmbient.current
+        Clickable(onClick = { current.pop() }) {
+          Container(LayoutSize(56.dp)) {
+            VectorImage(id = R.drawable.ic_baseline_arrow_back_24, tintColor = Color.Black)
+          }
+        }
       }
 
       Text(

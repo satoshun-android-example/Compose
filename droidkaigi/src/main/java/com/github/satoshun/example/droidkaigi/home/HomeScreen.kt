@@ -200,7 +200,7 @@ private fun HomeItemList2() {
     Spacer(modifier = LayoutHeight(26.dp))
   }
 
-  Button(onClick = { current.currentScreen = Screen.SessionDetail(from = data[0]) }) {
+  Button(onClick = { current.push(Screen.SessionDetail(from = data[0])) }) {
     Text(text = "DEBUG")
   }
 }
