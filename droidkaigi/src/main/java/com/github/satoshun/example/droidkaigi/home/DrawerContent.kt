@@ -22,6 +22,8 @@ import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
+import com.github.satoshun.example.R
+import com.github.satoshun.example.droidkaigi.SimpleImage
 
 @Composable
 fun DrawerContent(
@@ -31,8 +33,7 @@ fun DrawerContent(
   Column(modifier = LayoutHeight.Fill) {
     Row(modifier = LayoutHeight(168.dp)) {
       Container(modifier = LayoutSize(60.dp)) {
-        //        val icon = imageResource(id = R.drawable.ic_droidkaigi_logo)
-//        DrawImage(image = icon)
+        SimpleImage(id = R.drawable.ic_droidkaigi_logo)
       }
 
       Text(text = "DroidKaigi")

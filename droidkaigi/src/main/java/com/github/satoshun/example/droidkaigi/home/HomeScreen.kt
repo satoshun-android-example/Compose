@@ -19,6 +19,7 @@ import androidx.ui.layout.Row
 import androidx.ui.layout.Spacer
 import androidx.ui.layout.constraintlayout.ConstraintLayout
 import androidx.ui.layout.constraintlayout.ConstraintSet
+import androidx.ui.material.Button
 import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
 import androidx.ui.material.TopAppBar
@@ -31,6 +32,8 @@ import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 import com.github.satoshun.example.R
+import com.github.satoshun.example.droidkaigi.BackStackAmbient
+import com.github.satoshun.example.droidkaigi.Screen
 import com.github.satoshun.example.droidkaigi.SimpleImage
 import com.github.satoshun.example.droidkaigi.VectorImage
 
@@ -125,7 +128,7 @@ private val data = listOf(
     speaker = null,
     duration = "20min",
     category = "App Bars",
-    icon = R.drawable.ic_droidkaigi_logo
+    icon = null
   ),
   HomeItem(
     startAt = "10:20",
@@ -139,7 +142,9 @@ private val data = listOf(
 
 @Composable
 private fun HomeItemList2() {
+  val current = BackStackAmbient.current
   AdapterList(data = data) { model ->
+    // TODO use AdapterList + Clickable
     Row(modifier = LayoutPadding(12.dp)) {
       Column {
         Text(
@@ -150,6 +155,10 @@ private fun HomeItemList2() {
             fontWeight = FontWeight.W500
           )
         )
+      }
+
+      Button(onClick = { current.currentScreen = Screen.SessionDetail(from = model) }) {
+        Text(text = "DEBUG")
       }
 
       Spacer(modifier = LayoutWidth(16.dp))
