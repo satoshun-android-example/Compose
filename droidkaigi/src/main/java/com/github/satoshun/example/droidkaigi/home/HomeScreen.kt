@@ -7,11 +7,8 @@ import androidx.ui.core.Text
 import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.Box
 import androidx.ui.foundation.Clickable
-import androidx.ui.foundation.SimpleImage
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
-import androidx.ui.graphics.Image
-import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutHeight
@@ -29,13 +26,13 @@ import androidx.ui.material.icons.Icons
 import androidx.ui.material.icons.filled.Menu
 import androidx.ui.material.ripple.Ripple
 import androidx.ui.material.surface.Surface
-import androidx.ui.res.imageResource
-import androidx.ui.res.vectorResource
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
 import com.github.satoshun.example.R
+import com.github.satoshun.example.droidkaigi.SimpleImage
+import com.github.satoshun.example.droidkaigi.VectorImage
 
 @Composable
 fun HomeScreen(openDrawer: () -> Unit) {
@@ -46,27 +43,20 @@ fun HomeScreen(openDrawer: () -> Unit) {
       title = {
         Text(text = "")
         Container(modifier = LayoutSize(24.dp)) {
-          val icon = imageResource(id = R.drawable.ic_droidkaigi_logo)
-          SimpleImage(image = icon)
+          SimpleImage(id = R.drawable.ic_droidkaigi_logo)
         }
       },
       navigationIcon = {
         Ripple(bounded = false) {
           Clickable({ openDrawer() }) {
-            Container(modifier = LayoutSize(44.dp)) {
-              val icon = Icons.Default.Menu
-              DrawVector(icon, tintColor = Color.White)
-            }
+            VectorImage(vectorImage = Icons.Default.Menu, tintColor = Color.White)
           }
         }
       },
       actions = {
         Ripple(bounded = false) {
           Clickable({ }) {
-            Container(modifier = LayoutSize(44.dp)) {
-              val icon = vectorResource(id = R.drawable.ic_baseline_search_24)
-              DrawVector(icon, tintColor = Color.White)
-            }
+            VectorImage(id = R.drawable.ic_baseline_search_24, tintColor = Color.White)
           }
         }
       }
@@ -184,20 +174,20 @@ private fun HomeItemList2() {
         )
 
         if (model.icon is Int) {
-//          Container(modifier = LayoutSize(24.dp) + LayoutTag("icon")) {
-//            val icon = imageResource(id = model.icon)
-//            DrawImage(image = icon)
-//          }
+          SimpleImage(
+            id = model.icon,
+            modifier = LayoutSize(24.dp) + LayoutTag("icon")
+          )
         }
       }
 
       Spacer(modifier = LayoutWidth(16.dp))
 
       Column {
-        Container(width = 24.dp, height = 24.dp) {
-          //          val icon = vectorResource(id = R.drawable.ic_baseline_turned_in_not_24)
-//          DrawVector(icon)
-        }
+        VectorImage(
+          id = R.drawable.ic_baseline_turned_in_not_24,
+          modifier = LayoutSize(width = 24.dp, height = 24.dp)
+        )
       }
     }
 

@@ -67,9 +67,12 @@ dependencies {
   implementation UI_PLATFORM
   implementation UI_VECTOR
   implementation UI_UTIL
+  implementation UI_GRAPHICS
   implementation UI_FRAMEWORK
 
   implementation ACTIVITYX
+
+  implementation COIL
 
   testImplementation JUNIT
 

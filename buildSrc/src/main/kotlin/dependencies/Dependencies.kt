@@ -21,6 +21,7 @@ const val UI_PLATFORM = "androidx.ui:ui-platform:$VUIVERSION"
 const val UI_MATERIAL_ICON = "androidx.ui:ui-material-icons-core:$VUIVERSION"
 const val UI_MATERIAL_ICON_EXTENDED = "androidx.ui:ui-material-icons-extended:$VUIVERSION"
 const val UI_VECTOR = "androidx.ui:ui-vector:$VUIVERSION"
+const val UI_GRAPHICS = "androidx.ui:ui-graphics:$VUIVERSION"
 const val UI_UTIL = "androidx.ui:ui-util:$VUIVERSION"
 const val UI_FRAMEWORK = "androidx.ui:ui-framework:$VUIVERSION"
 
@@ -100,8 +101,7 @@ const val DAGGER_ANDROID_RUNTIME = "com.google.dagger:dagger-android:$VDAGGER"
 const val DAGGER_ANDROID_COMPILER = "com.google.dagger:dagger-android-processor:$VDAGGER"
 const val DAGGER_ANDROID_SUPPORT_RUNTIME = "com.google.dagger:dagger-android-support:$VDAGGER"
 
-const val GLIDE = "com.github.bumptech.glide:glide:4.9.0"
-const val PICASSO = "com.squareup.picasso:picasso:2.71828"
+const val COIL = "io.coil-kt:coil:0.9.5"
 
 const val JUNIT = "junit:junit:4.13-beta-1"
 const val TRUTH = "com.google.truth:truth:0.42"
