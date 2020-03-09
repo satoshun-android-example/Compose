@@ -143,8 +143,9 @@ private val data = listOf(
 @Composable
 private fun HomeItemList2() {
   val current = BackStackAmbient.current
-  AdapterList(data = data) { model ->
-    // TODO use AdapterList + Clickable
+  // TODO use AdapterList + Clickable
+  // TODO use LayoutHeight.FILL
+  AdapterList(data = data, modifier = LayoutHeight(500.dp)) { model ->
     Row(modifier = LayoutPadding(12.dp)) {
       Column {
         Text(
@@ -155,10 +156,6 @@ private fun HomeItemList2() {
             fontWeight = FontWeight.W500
           )
         )
-      }
-
-      Button(onClick = { current.currentScreen = Screen.SessionDetail(from = model) }) {
-        Text(text = "DEBUG")
       }
 
       Spacer(modifier = LayoutWidth(16.dp))
@@ -201,6 +198,10 @@ private fun HomeItemList2() {
     }
 
     Spacer(modifier = LayoutHeight(26.dp))
+  }
+
+  Button(onClick = { current.currentScreen = Screen.SessionDetail(from = data[0]) }) {
+    Text(text = "DEBUG")
   }
 }
 
