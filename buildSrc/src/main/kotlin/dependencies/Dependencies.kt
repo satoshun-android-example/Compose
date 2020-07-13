@@ -4,9 +4,9 @@ const val COMPILE_SDK = 29
 const val MIN_SDK = 25
 const val TARGET_SDK = 29
 
-private const val VKOTLIN = "1.3.70"
+private const val VKOTLIN = "1.3.71"
 
-const val ANDROID_PLUGIN = "com.android.tools.build:gradle:4.1.0-alpha02"
+const val ANDROID_PLUGIN = "com.android.tools.build:gradle:4.2.0-alpha04"
 const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VKOTLIN"
 
 const val VUIVERSION = "0.1.0-dev06"
